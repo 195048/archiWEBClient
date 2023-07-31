@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.service'; // import AuthService
 import { MovieService } from './services/movie.service';
 import { HeaderComponent } from './components/header/header.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     AppComponent,
     LoginComponent, // declare LoginComponent
     HomePageComponent, 
-    HeaderComponent, MovieDetailComponent,  // declare HomeComponent
+    HeaderComponent, MovieDetailComponent, RegisterComponent,  // declare HomeComponent
   ],
   imports: [
     BrowserModule,

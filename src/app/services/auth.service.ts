@@ -33,5 +33,10 @@ export class AuthService {
   private hasToken(): boolean {
     return !!localStorage.getItem('jwt_token');
   }
+
+  register(user: {email: string, password: string, address: string}): Observable<any> {
+    const registerUrl = 'http://139.59.136.122:8000/api/users/register';  // Replace with your register API endpoint
+    return this.http.post<any>(registerUrl, user);
+  }
   
 }
