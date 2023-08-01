@@ -1,8 +1,16 @@
-<div *ngIf="movie">
-    <h2>{{ movie?.title }}</h2>
-    <p>{{ movie?.synopsis }}</p>
-    <p>{{ movie?.actor }}</p>
-    <p>{{ movie?.year    }}</p>
-    <!-- ... -->
-  </div>
-  
+<a>
+    <div *ngIf="movie" class="movie-card">
+        <div class="content">
+            <div class="detail-section">
+                <h1>{{ movie?.title }}</h1>
+                <p>{{ movie?.synopsis }}</p>
+                <p>{{ movie?.actor }}</p>
+                <p>{{ movie?.year }}</p>
+                <!-- ... -->
+            </div>
+            <div class="image-section">
+                <img [src]="movie.picture" alt="Movie poster" class="movie-image">
+            </div>
+        </div>
+    </div>
+</a>

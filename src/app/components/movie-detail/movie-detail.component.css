@@ -1,0 +1,35 @@
+.movie-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin: 20px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.movie-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-section {
+    flex: 0 0 80%; /* takes up 80% of the available width */
+}
+
+.image-section {
+    flex: 0 0 20%; /* takes up 20% of the available width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-image {
+    max-width: 100%;
+    height: auto;
+}

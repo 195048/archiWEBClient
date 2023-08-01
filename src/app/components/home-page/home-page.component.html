@@ -1,11 +1,14 @@
 <div>
-    <h1>Welcome to Movie Ratings!</h1>
-    <h2>Top Movies</h2>
-    <ul>
-      <div *ngFor="let movie of movies">
-        <h2><a [routerLink]="['/movie', movie.title]">{{ movie.title }}</a></h2>
-        <!-- Add more movie info as needed... -->
-      </div>
-    </ul>
-  </div>
-  
+  <h2>Top Movies</h2>
+  <ul>
+    <div *ngFor="let movie of movies" class="movie-card">
+      <a class="test"[routerLink]="['/movie', movie.title]">
+        <div  class="movie-content">
+          <h2 class="test">{{ movie.title }}</h2>
+          <img [src]="movie.picture" alt="Movie poster" class="movie-image">
+          <!-- more movie details here -->
+        </div>
+      </a>
+    </div>
+  </ul>
+</div>
