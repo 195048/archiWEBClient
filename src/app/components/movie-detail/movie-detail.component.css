@@ -33,3 +33,28 @@
     max-width: 100%;
     height: auto;
 }
+
+.body {
+    font-family: 'Product Sans';
+    text-decoration: none;
+    color:black;
+}
+
+.rating-invitation {
+    display: flex; /* makes its children align in a row */
+    justify-content: space-between; /* adds space between the text and the button */
+    align-items: center; /* vertically aligns the text and the button */
+}
+
+button {
+    width: 25%;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+  
+button:hover {
+    background-color: #444;
+}

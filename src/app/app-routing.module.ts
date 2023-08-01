@@ -4,6 +4,8 @@ import { LoginComponent } from './components/login/login.component'; // import L
 import { HomePageComponent } from './components/home-page/home-page.component'; // import HomeComponent
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
+import { MyMoviesComponent } from './components/my-movies/my-movies.component'; // Assurez-vous d'importer le composant
 
 
 const routes: Routes = [
@@ -12,6 +14,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // redirect to /login by default
   { path: 'movie/:title', component: MovieDetailComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'rate-movie/:title', component: RateMovieComponent },
+  { path: 'my-movies', component: MyMoviesComponent },  // Ajoutez cette ligne pour la nouvelle route
+
 ];
 
 @NgModule({

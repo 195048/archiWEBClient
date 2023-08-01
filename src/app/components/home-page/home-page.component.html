@@ -1,5 +1,5 @@
-<div>
-  <h2>Top Movies</h2>
+<div class="body">
+  <h2 class="title">Top Movies</h2>
   <ul>
     <div *ngFor="let movie of movies" class="movie-card">
       <a class="test"[routerLink]="['/movie', movie.title]">

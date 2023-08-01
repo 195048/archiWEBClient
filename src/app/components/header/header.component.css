@@ -1,1 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+
+.body {
+    font-family: 'Product Sans';
+    padding: 20px;
+  }

@@ -1,4 +1,4 @@
-<a>
+<a  class="body">
     <div *ngIf="movie" class="movie-card">
         <div class="content">
             <div class="detail-section">
@@ -13,4 +13,13 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="movie" class="movie-card">
+        <!-- existing movie details here... -->
+        <div class="rating-invitation">
+            <p>Have you watched it already? Rate it!</p>
+            <button routerLink="/rate-movie/{{ movie?.title }}">Rate this Movie</button>
+        </div>
+    </div>
+    
 </a>

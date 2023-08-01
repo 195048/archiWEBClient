@@ -8,6 +8,7 @@
     padding: 20px;
     color: inherit;  /* color of text will be same as parent */
     text-decoration: none;  /* removes underline */
+    margin-left: -20px;
   }
   
   .movie-card:hover {
@@ -18,11 +19,12 @@
 
   .test {
     text-decoration: none;
+    font-weight: 100;
+    color: black;
   }
 
   .movie-image {
-    max-width: 200px;
-    max-height: 150px;
+    width: 125px;
     height: auto;
     margin-left: auto;
 
@@ -33,5 +35,11 @@
     align-items: center;
 }
 
-  
+.title {
+    padding-left: 20px;
+}
+
+.body {
+    font-family: 'Product Sans';
+  }
   

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         res => {
-          this.authService.saveToken(res.token),
+          this.authService.saveInfos(res.token,this.loginForm.value.email),
           this.router.navigate(['/home']);
         },
         err => {
@@ -57,4 +57,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-  

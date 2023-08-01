@@ -15,6 +15,8 @@ import { MovieService } from './services/movie.service';
 import { HeaderComponent } from './components/header/header.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
+import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
     AppComponent,
     LoginComponent, // declare LoginComponent
     HomePageComponent, 
-    HeaderComponent, MovieDetailComponent, RegisterComponent,  // declare HomeComponent
+    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent,  // declare HomeComponent
   ],
   imports: [
     BrowserModule,

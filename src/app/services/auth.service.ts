@@ -16,12 +16,14 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, credentials);
   }
 
-  saveToken(token: string): void {
+  saveInfos(token: string,email: string): void {
+    localStorage.setItem('email', email);
     localStorage.setItem('jwt_token', token);
     this.authStatus.next(true);
   }
 
   logout(): void {
+    localStorage.removeItem('email');
     localStorage.removeItem('jwt_token');
     this.authStatus.next(false);
   }
