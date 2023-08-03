@@ -18,7 +18,8 @@
         <!-- existing movie details here... -->
         <div class="rating-invitation">
             <p>Have you watched it already? Rate it!</p>
-            <button routerLink="/rate-movie/{{ movie?.title }}">Rate this Movie</button>
+            <button *ngIf="!userRating" routerLink="/rate-movie/{{ movie?.title }}">Rate this Movie</button>
+            <button *ngIf="userRating" (click)="updateRating()">Update your Rating</button>
         </div>
     </div>
     

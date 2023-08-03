@@ -46,4 +46,14 @@ export class RatingService {
     return this.http.get<any>(`${this.API_URL}user/${email}`, this.getHttpOptions());
   }
 
+  getRatingByEmailAndTitle(email: string, title: string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}movie/${email}/${title}`, this.getHttpOptions());
+  }
+  
+  updateRatingByEmailAndTitle(email: string, title: string, score: number, review: string): Observable<any> {
+    const payload = {score, review};
+    return this.http.put<any>(`${this.API_URL}movie/${email}/${title}`, payload, this.getHttpOptions());
+  }
+  
+
 }

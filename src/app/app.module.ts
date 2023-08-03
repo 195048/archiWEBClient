@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'; // import ReactiveFormsModule
 import { HttpClientModule } from '@angular/common/http'; // import HttpClientModule
 
@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component'; // import L
 import { HomePageComponent } from './components/home-page/home-page.component'; // import HomeComponent
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 import { AuthService } from './services/auth.service'; // import AuthService
@@ -17,6 +18,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { RegisterComponent } from './components/register/register.component';
 import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component';
+import { UpdateRatingComponent } from './components/update-rating/update-rating.component';
 
 
 @NgModule({
@@ -24,18 +26,20 @@ import { MyMoviesComponent } from './components/my-movies/my-movies.component';
     AppComponent,
     LoginComponent, // declare LoginComponent
     HomePageComponent, 
-    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent,  // declare HomeComponent
+    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent, UpdateRatingComponent,  // declare HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, // add ReactiveFormsModule to imports array
     HttpClientModule, // add HttpClientModule to imports array
+    FormsModule,
   ],
   providers: [
     AuthService, // add AuthService to providers array
     MovieService, // add MovieService to providers array
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class AppModule { }
