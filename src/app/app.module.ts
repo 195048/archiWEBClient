@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 import { UpdateRatingComponent } from './components/update-rating/update-rating.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { UpdateRatingComponent } from './components/update-rating/update-rating.
     AppComponent,
     LoginComponent, // declare LoginComponent
     HomePageComponent, 
-    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent, UpdateRatingComponent,  // declare HomeComponent
+    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent, UpdateRatingComponent, UserDetailsComponent,  // declare HomeComponent
   ],
   imports: [
     BrowserModule,

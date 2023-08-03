@@ -7,7 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component'; // Assurez-vous d'importer le composant
 import { UpdateRatingComponent } from './components/update-rating/update-rating.component';
-
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 
 const routes: Routes = [
@@ -19,6 +19,8 @@ const routes: Routes = [
   { path: 'rate-movie/:title', component: RateMovieComponent },
   { path: 'my-movies', component: MyMoviesComponent },  // Ajoutez cette ligne pour la nouvelle route
   { path: 'update-rating/:email/:title', component: UpdateRatingComponent },
+  { path: 'user', component: UserDetailsComponent },
+
 
 ];
 

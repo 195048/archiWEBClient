@@ -20,6 +20,7 @@
 
 .detail-section {
     flex: 0 0 80%; /* takes up 80% of the available width */
+    padding-right: 40px;
 }
 
 .image-section {

@@ -1,0 +1,23 @@
+<!-- user-details.component.html -->
+<div>
+    <h2>User Details</h2>
+    <p>Email: {{ user.email }}</p>
+    <div>
+      <label for="password">Old Password:</label>
+      <input type="password" [(ngModel)]="oldPassword">
+    </div>
+    <div>
+      <label for="password">New Password:</label>
+      <input type="password" [(ngModel)]="newPassword">
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input [(ngModel)]="user.address">
+    </div>
+    <div>
+      <label for="picture">Picture:</label>
+      <input [(ngModel)]="user.picture">
+    </div>
+    <button (click)="onUpdate()">Save</button>
+  </div>
+  
