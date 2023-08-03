@@ -1,4 +1,5 @@
-<div *ngFor="let rating of myRatings">
-    <h2>{{ rating }}</h2>
+<div *ngFor="let rating of myRatings" class="rating-card">
+    <h2>Title: {{ rating.title }}</h2>
+    <p>Review: {{ rating.review }}</p>
+    <p>Score: {{ rating.score }}</p>
 </div>
-  

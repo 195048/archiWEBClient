@@ -7,7 +7,8 @@ import { RatingService } from '../../services/rating.service';
   styleUrls: ['./my-movies.component.css']
 })
 export class MyMoviesComponent implements OnInit {
-  myRatings = [];
+  myRatings: any[] = [];
+
 
   constructor(private ratingService: RatingService) { }
 

@@ -42,7 +42,8 @@ export class RatingService {
 
   getMyRatings(): Observable<any> {
     const email = localStorage.getItem('email');
-    console.log(`${this.API_URL}user/${email}}`);
-    return this.http.get<any>(`${this.API_URL}user/${email}}`, this.getHttpOptions());
+    console.log(`${this.API_URL}user/${email}`);
+    return this.http.get<any>(`${this.API_URL}user/${email}`, this.getHttpOptions());
   }
+
 }
