@@ -1,6 +1,8 @@
 <div *ngFor="let rating of myRatings" class="rating-card">
-    <h2>{{ rating.title }}</h2>
+    <div class="header">
+      <h2>{{ rating.title }}</h2>
+      <button class="btn edit-btn" (click)="editRating(rating.title)">Edit Rating</button>
+    </div>
     <p>Review: {{ rating.review }}</p>
     <p>Score: {{ rating.score }}</p>
-    <button (click)="editRating(rating.title)">Edit Rating</button>
 </div>

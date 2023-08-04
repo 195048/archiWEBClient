@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  movie: any;  // Change this to the type of your movie object, if you have one.
-  movieTitle: string = '';  // Initialize the variable.
-  userRating: any = null;  // Initialize the variable.
+  movie: any;
+  movieTitle: string = '';
+  userRating: any = null;
 
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private ratingService: RatingService,  // inject the rating service
+    private ratingService: RatingService,
     private router: Router
   ) { }
   
@@ -33,11 +33,16 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getUserRating(): void {
-    const userEmail = localStorage.getItem('email') || '';  // Handle potential null value.
-    if (userEmail && this.movieTitle) {  // Only run the request if we have the necessary data.
-      this.ratingService.getRatingByEmailAndTitle(userEmail, this.movieTitle).subscribe(response => {
-        this.userRating = response;
-      });
+    const userEmail = localStorage.getItem('email') || '';
+    if (userEmail && this.movieTitle) {
+      this.ratingService.getRatingByEmailAndTitle(userEmail, this.movieTitle).subscribe(
+        response => {
+          this.userRating = response;
+        },
+        error => {
+          console.log("No rating found for this movie from this user");
+        }
+      );
     }
   }
 
@@ -47,7 +52,4 @@ export class MovieDetailComponent implements OnInit {
       this.router.navigate([`/update-rating/${userEmail}/${this.movieTitle}`]);
     }
   }
-  
 }
-
-  
