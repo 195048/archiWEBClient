@@ -10,7 +10,8 @@ import { RatingService } from '../../services/rating.service';
 })
 export class RateMovieComponent implements OnInit {
   rateMovieForm: FormGroup;
-  movieTitle!: string; // I've also renamed movieId to movieTitle to avoid confusion
+  movieTitle!: string;
+  score: number | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,11 @@ export class RateMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieTitle = this.route.snapshot.paramMap.get('title') || '';
+  }
+
+  ratingChanged(event: any): void {
+    this.score = event.detail;
+    this.rateMovieForm.patchValue({score: this.score});
   }
 
   onSubmit(): void {

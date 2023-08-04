@@ -1,9 +1,6 @@
-// update-rating.component.ts
 import { Component, OnInit } from '@angular/core';
 import { RatingService } from '../../services/rating.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
 
 @Component({
   selector: 'app-update-rating',
@@ -15,8 +12,9 @@ export class UpdateRatingComponent implements OnInit {
   review: string | null = null;
   email: string | null = null;
   title: string | null = null;
+  ratingId: string | null = null;
 
-  constructor(private ratingService: RatingService, private router: Router, private route: ActivatedRoute,private location: Location) {}
+  constructor(private ratingService: RatingService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.email = localStorage.getItem('email');
@@ -25,27 +23,28 @@ export class UpdateRatingComponent implements OnInit {
       this.ratingService.getRatingByEmailAndTitle(this.email, this.title).subscribe(response => {
         this.score = response.score;
         this.review = response.review;
+        this.ratingId = response.rating_id;
       });
     }
   }
 
   ratingChanged(event: any): void {
-    console.log(event.detail);
     this.score = event.detail;
   }
   
-
-  onSubmit(): void {
-    console.log(this.email);
-    console.log(this.title);
-    console.log(this.score);
-    console.log(this.review);
-    
+  updateRating(): void {
     if (this.email && this.title && this.score && this.review) {
       this.ratingService.updateRatingByEmailAndTitle(this.email, this.title, this.score, this.review).subscribe(() => {
-        this.location.back();
+        this.router.navigate(['/my-movies']);
       });
     }
   }
-  
+
+  deleteRating(): void {
+    if (this.ratingId) {
+      this.ratingService.deleteRating(this.ratingId).subscribe(() => {
+        this.router.navigate(['/my-movies']);
+      });
+    }
+  }
 }

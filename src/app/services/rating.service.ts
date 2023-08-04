@@ -54,6 +54,12 @@ export class RatingService {
     const payload = {score, review};
     return this.http.put<any>(`${this.API_URL}movie/${email}/${title}`, payload, this.getHttpOptions());
   }
+
+  deleteRating(id: string): Observable<any> {
+    console.log("DELETE" + `${this.API_URL}${id}`);
+    return this.http.delete(`${this.API_URL}${id}`,this.getHttpOptions());
+  }
+
   
 
 }

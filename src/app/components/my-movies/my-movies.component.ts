@@ -33,4 +33,6 @@ export class MyMoviesComponent implements OnInit {
     const email = localStorage.getItem("email");
     this.router.navigate(['/update-rating',email,movie]);
   }
+
+  
 }

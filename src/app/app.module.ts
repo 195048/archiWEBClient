@@ -22,6 +22,7 @@ import { UpdateRatingComponent } from './components/update-rating/update-rating.
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
