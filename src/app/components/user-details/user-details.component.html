@@ -1,23 +1,66 @@
-<!-- user-details.component.html -->
-<div>
-    <h2>User Details</h2>
-    <p>Email: {{ user.email }}</p>
-    <div>
-      <label for="password">Old Password:</label>
-      <input type="password" [(ngModel)]="oldPassword">
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Email</h5>
+      <p class="card-text">{{ user.email }}</p>
     </div>
-    <div>
-      <label for="password">New Password:</label>
-      <input type="password" [(ngModel)]="newPassword">
-    </div>
-    <div>
-      <label for="address">Address:</label>
-      <input [(ngModel)]="user.address">
-    </div>
-    <div>
-      <label for="picture">Picture:</label>
-      <input [(ngModel)]="user.picture">
-    </div>
-    <button (click)="onUpdate()">Save</button>
   </div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Password</h5>
+      <button class="btn btn-primary" (click)="openPasswordModal()">Change Password</button>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Address</h5>
+      <button class="btn btn-primary" (click)="openAddressModal()">Change Address</button>
+    </div>
+  </div>
+</div>
+
+<!-- Password Modal -->
+<div *ngIf="showPasswordModal" class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Change Password</h5>
+    </div>
+    <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
+      <div class="modal-body">
+        <label>Old Password:</label>
+        <input type="password" formControlName="oldPassword" class="form-control">
   
+        <label>New Password:</label>
+        <input type="password" formControlName="newPassword" class="form-control">
+  
+        <label>Confirm New Password:</label>
+        <input type="password" formControlName="confirmPassword" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="closePasswordModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Address Modal -->
+<div *ngIf="showAddressModal" class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Change Address</h5>
+    </div>
+    <form [formGroup]="addressForm" (ngSubmit)="onAddressSubmit()">
+      <div class="modal-body">
+        <label>New Address:</label>
+        <input type="text" formControlName="address" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="closeAddressModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

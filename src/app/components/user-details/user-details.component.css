@@ -1,0 +1,95 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Product Sans';
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.container .card {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+    cursor: pointer;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.container .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.container .card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .card .card-body .btn {
+    width: 100%;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container .card .card-body .btn:hover {
+    background-color: #444;
+}
+
+.modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.modal-content form button {
+    width: 100%;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+.modal-content form button:hover {
+    background-color: #444;
+}
