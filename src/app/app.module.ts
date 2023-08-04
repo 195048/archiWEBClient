@@ -21,6 +21,7 @@ import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 import { UpdateRatingComponent } from './components/update-rating/update-rating.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PlaceholderPageComponent } from './components/placeholder-page/placeholder-page.component';
 
 
 
@@ -29,7 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     LoginComponent, // declare LoginComponent
     HomePageComponent, 
-    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent, UpdateRatingComponent, UserDetailsComponent, FooterComponent,  // declare HomeComponent
+    HeaderComponent, MovieDetailComponent, RegisterComponent, RateMovieComponent, MyMoviesComponent, UpdateRatingComponent, UserDetailsComponent, FooterComponent, PlaceholderPageComponent,  // declare HomeComponent
   ],
   imports: [
     BrowserModule,
