@@ -1,9 +1,12 @@
 <div class="body">
-  <h2 class="title">Top Movies</h2>
+  <div class="title-container">
+    <h2 class="title">Top Movies</h2>
+    <input [(ngModel)]="searchTerm" class="search-box" placeholder="Search for movies..."/>
+  </div>
   <ul>
-    <div *ngFor="let movie of movies" class="movie-card">
-      <a class="test"[routerLink]="['/movie', movie.title]">
-        <div  class="movie-content">
+    <div *ngFor="let movie of filteredMovies" class="movie-card">
+      <a class="test" [routerLink]="['/movie', movie.title]">
+        <div class="movie-content">
           <h2 class="test">{{ movie.title }}</h2>
           <img [src]="movie.picture" alt="Movie poster" class="movie-image">
           <!-- more movie details here -->

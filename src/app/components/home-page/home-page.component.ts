@@ -9,6 +9,7 @@ import { MovieService } from '../../services/movie.service';
 export class HomePageComponent implements OnInit {
 
   movies: any[] = [];
+  searchTerm: string = '';
 
   constructor(private movieService: MovieService) { }
 
@@ -19,4 +20,13 @@ export class HomePageComponent implements OnInit {
     })
   }
 
+  get filteredMovies(): any[] {
+    if (!this.searchTerm) {
+      return this.movies;
+    }
+
+    return this.movies.filter(movie =>
+      movie.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }
