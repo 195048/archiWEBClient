@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService, User } from '../../services/user.service';
 
@@ -13,12 +13,13 @@ export class UserDetailsComponent implements OnInit {
   showAddressModal: boolean = false;
   passwordForm: FormGroup;
   addressForm: FormGroup;
+  passwordError: string | null = null;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService,private cdr: ChangeDetectorRef) {
     this.passwordForm = this.formBuilder.group({
       oldPassword: ['', Validators.required],
-      newPassword: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      newPassword: ['', [Validators.required, Validators.minLength(1)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(1)]]
     });
 
     this.addressForm = this.formBuilder.group({
@@ -34,6 +35,8 @@ export class UserDetailsComponent implements OnInit {
   }
 
   openPasswordModal() {
+    this.passwordForm.reset();
+    this.passwordError = null;
     this.showPasswordModal = true;
   }
 
@@ -42,6 +45,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   openAddressModal() {
+    this.addressForm.reset();
     this.showAddressModal = true;
   }
 
@@ -50,20 +54,30 @@ export class UserDetailsComponent implements OnInit {
   }
 
   onPasswordSubmit() {
+    console.log(this.passwordForm.valid && this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword);  // Add this line
     if (this.passwordForm.valid && this.passwordForm.value.newPassword === this.passwordForm.value.confirmPassword) {
-      this.userService.verifyPassword(this.user.email, this.passwordForm.value.oldPassword).subscribe(isValid => {
-        if (isValid) {
-          this.user.password = this.passwordForm.value.newPassword;
-          this.userService.updateUser(this.user).subscribe(response => {
-            const updatedUser = response.user; // Extract the 'user' property from the response
-            this.user = updatedUser;
-            this.closePasswordModal();
-          });
+      this.userService.verifyPassword(this.user.email, this.passwordForm.value.oldPassword).subscribe(
+        isValid => {
+          if (isValid) {
+            this.user.password = this.passwordForm.value.newPassword;
+            this.userService.updateUser(this.user).subscribe(response => {
+              const updatedUser = response.user; // Extract the 'user' property from the response
+              this.user = updatedUser;
+              this.closePasswordModal();
+            });
+          } else {
+            this.passwordError = 'Incorrect old password. Please try again.';
+          }
+        },
+        error => {
+          // The server returned an error.
+          console.error('An error occurred:', error);
+          this.passwordError = 'Wrong old password.';
         }
-      });
-    }
+      );
   }
-  
+}
+
   onAddressSubmit() {
     if (this.addressForm.valid) {
       this.user.address = this.addressForm.value.address;
@@ -75,5 +89,4 @@ export class UserDetailsComponent implements OnInit {
       });
     }
   }
-  
 }

@@ -93,3 +93,9 @@ body {
 .modal-content form button:hover {
     background-color: #444;
 }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

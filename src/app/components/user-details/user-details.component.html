@@ -31,12 +31,17 @@
       <div class="modal-body">
         <label>Old Password:</label>
         <input type="password" formControlName="oldPassword" class="form-control">
-  
+
         <label>New Password:</label>
         <input type="password" formControlName="newPassword" class="form-control">
-  
+
         <label>Confirm New Password:</label>
         <input type="password" formControlName="confirmPassword" class="form-control">
+
+        <!-- Display Error Message -->
+        <div *ngIf="passwordError" class="error-message">
+          {{ passwordError }}
+        </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
